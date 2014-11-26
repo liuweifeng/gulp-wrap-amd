@@ -12,6 +12,7 @@ function compile(contents, opts){
   opts.name = null;
   if(typeof opts.moduleRoot === 'string'){
     opts.name = path.relative(opts.moduleRoot, opts.file.path).slice(0, -path.extname(opts.file.path).length);
+    opts.name = opts.name.replace(/\\/g, '/');
   }
 
   opts.contents = contents;
